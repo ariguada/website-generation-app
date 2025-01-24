@@ -1,3 +1,5 @@
+![app diagram](images/diagram.png)
+
 ## Step 1: Upload PDF to S3 via Frontend
 
 This step provides a simple frontend that allows users to upload PDF files to the S3 bucket `conversion-service-bucket`. The interface is hosted on the same bucket and built with an HTML file and a JavaScript file.
