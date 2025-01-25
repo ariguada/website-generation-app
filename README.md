@@ -73,3 +73,22 @@ The **`createWebSite`** Lambda requires:
 4. Frontend shows the Button with the link to a new website.
 
 ---
+
+## Visual presentation
+#### Starting page
+![Frontend](images/frontend-1.png)
+
+---
+
+#### File uploaded
+![Frontend](images/frontend-2.png)
+
+---
+
+#### API response in console with the link. Website button appeared
+![Frontend](images/frontend-3.png)
+
+---
+
+#### Final result. Website based on the uploaded file.
+![Frontend](images/frontend.png)
