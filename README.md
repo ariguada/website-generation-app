@@ -105,7 +105,7 @@ The **`createWebSite`** Lambda requires:
 
 ## Clean up Python script.
 
-**`clean-up.py`**: Python script that is removing new S3 buckets and cleans up the main bucket while testing. Optionally can upload frontend files to empty S3 for fresh test.
+**[clean-up](clean-up.py)**: Python script that is removing new S3 buckets and cleans up the main bucket while testing. Optionally can upload frontend files to empty S3 for fresh test.
 
 
 
