@@ -3,6 +3,8 @@
 # Brief Functional Description
 This application allows users to upload `.pdf` or `.html` files using a simple frontend. If the file is a `.pdf`, the `TriggerCloudConvertJob` Lambda function creates a job on the CloudConvert REST API to convert it into `.html`. When the `.html` file is uploaded to S3, it triggers the `createWebSite` Lambda function, which creates a randomly named S3 bucket, moves the `index.html` file to the new bucket, and sets up static website hosting. The website URL is sent to the frontend for display.
 
+
+
 ---
 
 ## Service 1: Frontend
@@ -31,7 +33,7 @@ When a `.pdf` file is uploaded, the **`TriggerCloudConvertJob`** Lambda function
    - Convert it to HTML.
    - Export the HTML file back to S3.
 
-For `TriggerCloudConvertJob` Lambda code look for **/backend/`TriggerCloudConvertJob.py`**
+**`TriggerCloudConvertJob`** Lambda code -- [TriggerCloudConvertJob](backend/TriggerCloudConvertJob.py)
 
 ### Environment Variables
 - `CLOUDCONVERT_API_KEY`: CloudConvert API key.
@@ -54,7 +56,7 @@ When an `.html` file (`index.html`) is uploaded, the **`createWebSite`** Lambda 
 5. Configures public access and static website permissions.
 6. Constructs the website URL and sends it to the `file-processing-logs` SQS queue.
 
-For `createWebSite` Lambda code look for **/backend/`createWebSite.py`**
+**`createWebSite`** Lambda code -- [createWebSite](backend/createWebSite.py)
 
 ### Permissions
 The **`createWebSite`** Lambda requires:
@@ -76,7 +78,7 @@ The **`createWebSite`** Lambda requires:
 3. **`logProcessing`** retrieves the URL from SQS and sends it back to the frontend.
 4. Frontend shows the Button with the link to a new website.
 
-For `logProcessing` Lambda code look for **/backend/`logProcessing.py`**
+**`logProcessing`** Lambda code -- [logProcessing](backend/logProcessing.py)
 
 ---
 
