@@ -31,6 +31,8 @@ When a `.pdf` file is uploaded, the **`TriggerCloudConvertJob`** Lambda function
    - Convert it to HTML.
    - Export the HTML file back to S3.
 
+For `TriggerCloudConvertJob` Lambda code look for **/backend/`TriggerCloudConvertJob.py`**
+
 ### Environment Variables
 - `CLOUDCONVERT_API_KEY`: CloudConvert API key.
 - `ACCESS_KEY_ID`: AWS access key.
@@ -52,6 +54,8 @@ When an `.html` file (`index.html`) is uploaded, the **`createWebSite`** Lambda 
 5. Configures public access and static website permissions.
 6. Constructs the website URL and sends it to the `file-processing-logs` SQS queue.
 
+For `createWebSite` Lambda code look for **/backend/`createWebSite.py`**
+
 ### Permissions
 The **`createWebSite`** Lambda requires:
 1. **sqs:SendMessage** for `file-processing-logs`.
@@ -71,6 +75,8 @@ The **`createWebSite`** Lambda requires:
 2. **API Gateway** triggers the **`logProcessing`** Lambda function.
 3. **`logProcessing`** retrieves the URL from SQS and sends it back to the frontend.
 4. Frontend shows the Button with the link to a new website.
+
+For `logProcessing` Lambda code look for **/backend/`logProcessing.py`**
 
 ---
 
@@ -92,3 +98,12 @@ The **`createWebSite`** Lambda requires:
 
 #### Final result. Website based on the uploaded file.
 ![Frontend](images/frontend.png)
+
+---
+
+## Clean up Python script.
+
+**`clean-up.py`**: Python script that is removing new S3 buckets and cleans up the main bucket while testing. Optionally can upload frontend files to empty S3 for fresh test.
+
+
+
